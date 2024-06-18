@@ -50,7 +50,7 @@ public class Pedido {
     
 
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.REMOVE)
     private List<ItemPedido> itens = new ArrayList<>();
 
 
@@ -62,7 +62,7 @@ public class Pedido {
     @JsonIgnore
     private List<Pagamento> pagamentos = new ArrayList<>();
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "dados_pedido_id")
     private DadosPedido dadosPedido;
 
