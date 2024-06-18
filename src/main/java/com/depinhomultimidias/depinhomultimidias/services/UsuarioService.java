@@ -56,10 +56,9 @@ public class UsuarioService implements UserDetailsService{
         if(usuario.getEmail() != null){
             newUsuario.setEmail(usuario.getEmail());
         }
-        if(usuario.getSenha() != null){
-            newUsuario.setSenha(usuario.getSenha());
-
-        }
+        if (usuario.getSenha() != null && !usuario.getSenha().isEmpty()) {
+        newUsuario.setSenha(usuario.getSenha());
+    }
         
         return usuarioRepository.save(newUsuario);
     }

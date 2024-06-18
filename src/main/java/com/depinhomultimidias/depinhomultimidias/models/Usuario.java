@@ -21,6 +21,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,11 +42,11 @@ public class Usuario implements UserDetails{
     private Long id;
 
     @Column(name = "email",unique = true, nullable = false)
-    @NotBlank(message = "O Campo é obrigatório")
+    @NotNull(message = "O Campo é obrigatório")
     private String email;
 
     @Column(name = "senha",nullable = false)
-    @NotBlank(message = "O Campo é obrigatório")
+    @NotNull(message = "O Campo é obrigatório")
     private String senha;
 
     @Column(name = "primeiro_nome", nullable = true)
