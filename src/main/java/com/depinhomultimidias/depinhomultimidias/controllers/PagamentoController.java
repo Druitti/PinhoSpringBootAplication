@@ -100,9 +100,9 @@ public class PagamentoController {
         try {
     
             PreferenceBackUrlsRequest backUrls = PreferenceBackUrlsRequest.builder()
-                .pending("http://127.0.0.1:8081/front-end/src/perfil.html")
-                .success("http://127.0.0.1:8081/front-end/src/perfil.html")
-                .failure("http://127.0.0.1:8081/front-end/src/perfil.html")
+            .pending("https://plf-es-2024-1-ti3-8966100-de-pinho-multimidias.vercel.app/perfil.html")
+            .success("https://plf-es-2024-1-ti3-8966100-de-pinho-multimidias.vercel.app/perfil.html")
+            .failure("https://plf-es-2024-1-ti3-8966100-de-pinho-multimidias.vercel.app/perfil.html")
                 .build();       
     
             List<PreferenceItemRequest> items = new ArrayList<>();
