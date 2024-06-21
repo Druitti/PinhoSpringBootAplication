@@ -27,6 +27,9 @@ public class UsuarioService implements UserDetailsService{
     @Autowired
     TokenService tokenService;
 
+    @Autowired
+    EmailService emailService;
+
     public Usuario findById(@NonNull Long id){
         Optional<Usuario> usuario = this.usuarioRepository.findById(id);
         return usuario.orElseThrow(() -> new ObjectNotFoundException(
@@ -35,7 +38,10 @@ public class UsuarioService implements UserDetailsService{
 
     @Transactional
     public Usuario create(@NonNull Usuario usuario){
-        return this.usuarioRepository.save(usuario);
+        Usuario newUsuario = this.usuarioRepository.save(usuario);
+        emailService.enviarEmail(usuario.getEmail(), "Cadastro no site dePinhoMultimídias", "se leu mamou");
+        
+        return newUsuario;
     }
 
     @Transactional
